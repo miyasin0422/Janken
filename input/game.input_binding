@@ -1,0 +1,12 @@
+key_trigger {
+  input: KEY_ESC
+  action: "esc"
+}
+mouse_trigger {
+  input: MOUSE_BUTTON_RIGHT
+  action: "click"
+}
+mouse_trigger {
+  input: MOUSE_BUTTON_LEFT
+  action: "click"
+}

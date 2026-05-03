@@ -1,0 +1,25 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[script]
+shared_state = 1
+
+[display]
+width = 1280
+height = 720
+dynamic_orientation = 1
+
+[project]
+title = janken
+dependencies = https://github.com/subsoap/defos/archive/master.zip
+
+[input]
+gamepads = /input/gamepad.gamepadsc
+
+[android]
+package = com.jakudengame
+app_icon_192x192 = /main/rsp.png
+
+[windows]
+app_icon = /main/rsp.ico
+

@@ -1,0 +1,12 @@
+images {
+  image: "/main/janken_choki.png"
+}
+images {
+  image: "/main/janken_gu.png"
+}
+images {
+  image: "/main/janken_pa.png"
+}
+margin: 0
+extrude_borders: 2
+inner_padding: 0
