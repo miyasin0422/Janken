@@ -10,8 +10,7 @@ function init(self)
   win_count = 0
 	max_count = 0
 	lose_count = 0
-  rnd = 0
-	game_flag = true
+	rnd = 0
   r_node = gui.get_node("r_button")
   s_node = gui.get_node("s_button")
   p_node = gui.get_node("p_button")
@@ -34,15 +33,17 @@ function init(self)
   gui.set_color(enemy1_node, vmath.vector4(gui.get_color(enemy1_node).x, gui.get_color(enemy1_node).y, gui.get_color(enemy1_node).z, 0))
   gui.set_color(enemy2_node, vmath.vector4(gui.get_color(enemy2_node).x, gui.get_color(enemy2_node).y, gui.get_color(enemy2_node).z, 0))
   gui.set_color(enemy3_node, vmath.vector4(gui.get_color(enemy3_node).x, gui.get_color(enemy3_node).y, gui.get_color(enemy3_node).z, 0))
-	--windowの設定
-	defos.disable_window_resize()
-	defos.disable_minimize_button(festival)
-	defos.disable_maximize_button(festival)
-	defos.set_always_on_top(festival)
-	display = defos.get_displays()
-	display_id = defos.get_current_display_id()
-	defos.set_view_size((display[display_id].bounds.width - 1280) / 2, (display[display_id].bounds.height - 720) / 2, 1280, 720)
-	defos.set_console_visible(false)
+--windowの設定
+	if system_name == "Windows" then
+		defos.disable_window_resize()
+		defos.disable_minimize_button()
+		defos.disable_maximize_button()
+		defos.set_always_on_top(festival)
+		display = defos.get_displays()
+		display_id = defos.get_current_display_id()
+		defos.set_view_size((display[display_id].bounds.width - 1280) / 2, (display[display_id].bounds.height - 720) / 2, 1280, 720)
+		defos.set_console_visible(false)
+	end
 end
 
 function update(self, dt)
@@ -82,9 +83,8 @@ function on_input(self, action_id, action)
       gui.set_color(gui.get_node("start_button"), vmath.vector4(gui.get_color(start_node).x, gui.get_color(start_node).y, gui.get_color(start_node).z, 0))
       gui.set_color(buttons_node, vmath.vector4(gui.get_color(buttons_node).x, gui.get_color(buttons_node).y, gui.get_color(buttons_node).z, 1))
       gui.set_color(name_node, vmath.vector4(gui.get_color(name_node).x, gui.get_color(name_node).y, gui.get_color(name_node).z, 1))
-			gui.set_color(gui.get_node("result_text_node"), vmath.vector3(256, 256, 256))--PC
+			gui.set_color(gui.get_node("result_text_node"), vmath.vector4(0, 0, 0, 0))--PC
 			gui.set_text(gui.get_node("result_text_node"), "出す手を選んでね♡")
-			game_flag = true
     end
 	elseif action_id == hash("esc") then
 		sys.exit(0)
@@ -92,21 +92,20 @@ function on_input(self, action_id, action)
 end
 
 function battle(input)
-	game_flag = false
 	rnd = math.random()*100
 	opponent_result = 0
 	if rnd > lose_count then
 		opponent_result = RSP_result[2][input]--勝ち
 		win_count = win_count + 1
-		gui.set_color(gui.get_node("result_text_node"), vmath.vector3(256, 256, 1))--PC
+		gui.set_color(gui.get_node("result_text_node"), vmath.vector4(1, 0, 0, 1))
 		gui.set_text(gui.get_node("result_text_node"), "勝ち")
 	elseif rnd < lose_count/3 then
 		opponent_result = RSP_result[3][input]--負け
 		win_count = 0
-		gui.set_color(gui.get_node("result_text_node"), vmath.vector3(1, 256, 256))--PC
+		gui.set_color(gui.get_node("result_text_node"), vmath.vector4(0, 0, 1, 1))
 		gui.set_text(gui.get_node("result_text_node"), "負け")
 	else
-		gui.set_color(gui.get_node("result_text_node"), vmath.vector3(256, 256, 256))--PC
+		gui.set_color(gui.get_node("result_text_node"), vmath.vector4(0, 0, 0, 1))
 		gui.set_text(gui.get_node("result_text_node"), "あいこ")
 		opponent_result = RSP_result[1][input]--あいこ
 	end
