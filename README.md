@@ -42,13 +42,9 @@ Defoldを使用して個人制作した、シンプルなじゃんけんゲー�
 
 ゲームの内容を短い動画で紹介しています。
 
-<!-- YouTube動画公開後に差し替え -->
+[![じゃんけんゲーム 紹介動画](https://img.youtube.com/vi/GGjdFhfrPV8/maxresdefault.jpg)](https://www.youtube.com/watch?v=GGjdFhfrPV8)
 
-<!--
-[![じゃんけんゲーム 紹介動画](https://img.youtube.com/vi/動画ID/maxresdefault.jpg)](https://youtu.be/動画ID)
-
-[YouTubeで紹介動画を見る](https://youtu.be/動画ID)
--->
+[YouTubeで紹介動画を見る](https://youtu.be/GGjdFhfrPV8)
 
 ---
 
@@ -58,6 +54,7 @@ Defoldを使用して個人制作した、シンプルなじゃんけんゲー�
 | ----- | ---------------------- |
 | 手を選択  | グー / チョキ / パーのボタンをクリック |
 | ゲーム開始 | STARTボタンをクリック          |
+| やめる | やめるボタンをクリック          |
 
 ---
 
@@ -114,6 +111,7 @@ RSP_result = {
 敗北すると現在の連勝記録がリセットされます。
 
 これにより、シンプルなじゃんけんでも繰り返し挑戦できるようにしています。
+![Uploading スクリーンショット 2026-09-01 205719.png…]()
 
 <!-- スクリーンショット追加例
 <img width="800" alt="ゲーム画面" src="画像URL" />
